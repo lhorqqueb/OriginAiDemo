@@ -2,15 +2,17 @@
 
 echo "Setting up test environment..."
 sudo apt-get update
-sudo apt-get install -y python3 python3-pip
+sudo apt-get install -y python3 python3-pip allure
 
 echo "Installing dependencies..."
-pip3 install pytest behave pytest-reportportal
+pip3 install -r requirements.txt
+pip3 install allure-pytest
 
 echo "Running unit tests with PyTest..."
-pytest --reportportal -c reportportalConfig.py tests/unit/ > logs/unitTestResults.log
+pytest --alluredir=./allure-results tests/unit/
 
 echo "Running integration tests with Behave..."
-behave tests/integration/features/ > logs/integrationTestResults.log
+behave -f allure_behave.formatter:AllureFormatter -o ./allure-results tests/integration/features/
 
-echo "Test execution complete. Check logs for details."
+echo "Generating Allure Report..."
+allure serve ./allure-results
