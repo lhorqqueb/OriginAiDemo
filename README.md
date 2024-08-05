@@ -59,6 +59,11 @@ pip install -r requirements.txt
 behave tests/integration/features
 ```
 
+### Run Automated Tests
+```bash
+./scripts/runTests.sh
+```
+
 ### View Test Reports
 To generate and view the allure report, run: 
 ```bash
