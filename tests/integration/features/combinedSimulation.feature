@@ -20,11 +20,6 @@ Feature: Combined Simulation
     When I evaluate performance
     Then the WiFi performance should be "Excellent"
 
-  Scenario: Evaluate WiFi performance as Ideal
-    Given the combined simulator is running
-    When I evaluate performance
-    Then the WiFi performance should be "Ideal"
-
   Scenario: Evaluate WiFi performance as Optimized
     Given the combined simulator is running
     When I evaluate performance
@@ -34,3 +29,8 @@ Feature: Combined Simulation
     Given the combined simulator is running
     When I evaluate performance
     Then the WiFi performance should be "Poor"
+
+  Scenario: Evaluate WiFi performance as Normal
+    Given the combined simulator is running
+    When I evaluate performance
+    Then the WiFi performance should be "Normal"

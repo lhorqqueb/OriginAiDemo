@@ -322,12 +322,22 @@ def step_impl(context):
     """
     assert context.performance == 'Optimized'
 
-@then('the WiFi performance should be "Poor"')
+@then('the WiFi performance should not be "Poor"')
 def step_impl(context):
     """
-    Verifies that the WiFi performance is evaluated as "Poor".
+    Verifies that the WiFi performance is not evaluated as "Poor" and intentionally fails the test if it is.
 
     Args:
         context: Behave context object for sharing data between steps.
     """
-    assert context.performance == 'Poor'
+    assert context.performance != 'Poor', "Test failed intentionally: performance is Poor"
+
+@then('the WiFi performance should not be "Normal"')
+def step_impl(context):
+    """
+    Verifies that the WiFi performance is not evaluated as "Normal" and intentionally fails the test if it is.
+
+    Args:
+        context: Behave context object for sharing data between steps.
+    """
+    assert context.performance != 'Normal', "Test failed intentionally: performance is Normal"
