@@ -10,9 +10,6 @@ receives responses, mimicking the behavior of a real embedded system.
 Usage:
     Run this script directly to start the simulation.
 
-Example:
-    python embedded_system_simulator.py
-
 Modules:
     - random: Provides functions for generating random data.
     - time: Provides time-related functions, used here for delays between send/receive actions.

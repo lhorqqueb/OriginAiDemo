@@ -14,10 +14,6 @@ This repository contains a comprehensive and production-ready automation framewo
 - Uses PyTest for unit testing.
 - Uses Behave for behavior-driven development (BDD) and integration tests.
 
-### Continuous Integration with GitHub Actions
-- Automated test execution on code commits.
-- CI/CD pipeline for seamless integration and deployment.
-
 ### Detailed Reporting with Allure
 - Generates informative and customizable test reports.
 - Provides easy-to-understand and shareable test results.
@@ -30,7 +26,6 @@ This repository contains a comprehensive and production-ready automation framewo
 - **Embedded System Simulation**: Custom Python scripts
 - **Unit Testing**: PyTest
 - **Integration Testing**: Behave
-- **Continuous Integration**: GitHub Actions
 - **Reporting**: Allure
 - **Version Control**: Git
 
@@ -69,3 +64,4 @@ To generate and view the allure report, run:
 ```bash
 allure serve ./allure-results
 ```
+

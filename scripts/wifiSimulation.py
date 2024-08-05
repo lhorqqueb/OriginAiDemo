@@ -10,8 +10,6 @@ The simulator continuously generates random values for these parameters and prin
 Usage:
     Run this script directly to start the simulation.
 
-Example:
-    python wifi_simulator.py
 
 Modules:
     - random: Provides functions for generating random data.
