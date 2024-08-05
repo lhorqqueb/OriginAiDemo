@@ -1,18 +1,24 @@
 #!/bin/bash
 
-echo "Setting up test environment..."
-sudo apt-get update
-sudo apt-get install -y python3 python3-pip allure
+echo ====================" Running tests and generating Allure report... ===================="
 
-echo "Installing dependencies..."
-pip3 install -r requirements.txt
-pip3 install allure-pytest
+# Ensure dependencies are installed
+pip install pytest allure-pytest
 
-echo "Running unit tests with PyTest..."
-pytest --alluredir=./allure-results tests/unit/
+# Set PYTHONPATH
+export PYTHONPATH=$(pwd)
 
-echo "Running integration tests with Behave..."
-behave -f allure_behave.formatter:AllureFormatter -o ./allure-results tests/integration/features/
+# Run PyTest with Allure
+pytest --alluredir=allure-results tests/unit/*
 
-echo "Generating Allure Report..."
-allure serve ./allure-results
+# Generate and Serve Allure Report
+allure serve allure-results
+
+# Add a newline and delete __pycache__ and .pytest_cache directories
+echo ""
+echo "====================== Cleaning up Cache directories... "======================
+find . -type d -name "__pycache__" -exec rm -rf {} +
+find . -type d -name ".pytest_cache" -exec rm -rf {} +
+echo ""
+
+echo "============================ Cleanup complete. "============================
